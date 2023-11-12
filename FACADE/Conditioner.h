@@ -1,14 +1,20 @@
 #pragma once
 #include "TV.h"
+#include<cstdlib>
 class Conditioner
 {
 private:
-	bool power;
-	int temp;
+	bool power_;
+	int condTemp;
+	int HomeTemp;
 public:
 	Conditioner();
-	void powerON();
-	void powerOFF();
-	void changeTemp(int temp);
+	void setHomeTemp();
+	void power();
+	void setTemp();
+	bool getPower();
+	int getTemp();
+	int getHomeTemp();
+
 };
 

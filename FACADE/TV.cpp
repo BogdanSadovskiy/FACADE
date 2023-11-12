@@ -1,23 +1,34 @@
 #include "TV.h"
 
 TV::TV() {
-	this->power = OFF;
+	this->power_ = OFF;
 	this->channel = 1;
 }
 
-void TV::powerON() {
-	this->power = ON;
-}
-
-void TV::powerOFF() {
-	this->power = OFF;
-}
-
-void TV::changeChannel(int channel, bool& correctChannel) {
-	if (channel < 1 || channel > 30) {
-		cout << "Incorrect channel\n";
-		correctChannel = false;
+void TV::power() {
+	if (power_ == OFF) {
+		cout << "Turning ON the TV\n";
+		Sleep(400);
+		this->power_ = ON;
 		return;
 	}
+	if (power_ == ON) {
+		cout << "Turning OFF the TV\n";
+		Sleep(400);
+		this->power_ = OFF;
+	}
+}
+
+
+void TV::changeChannel(int channel) {
 	this->channel = channel;
+	cout << "TV channel set to " << channel << endl;
+	Sleep(400);
+}
+
+bool TV::getPower() {
+	return this->power_;
+}
+int TV::getChannel() {
+	return this->channel;
 }

@@ -7,5 +7,6 @@ private:
 public:
 	Lightening();
 	void setBrightness(int brightness);
+	int getBrightness();
 };
 
